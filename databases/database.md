@@ -35,6 +35,17 @@
     - [Super Key](#super-key)
     - [Candidate Atribute](#candidate-atribute)
     - [Primary Key](#primary-key)
+  - [Ketergantungan Fungsionliatas](#ketergantungan-fungsionliatas)
+  - [Proses Normalisasi](#proses-normalisasi)
+    - [Normalisasi Ke 1](#normalisasi-ke-1)
+    - [Normalisasi Ke 2](#normalisasi-ke-2)
+    - [Normalisasi Ke 3](#normalisasi-ke-3)
+    - [Denormalisasi](#denormalisasi)
+    - [Derived Atribute](#derived-atribute)
+    - [Atribute tambahan](#atribute-tambahan)
+    - [Summary Table](#summary-table)
+    - [Atribute Pencarian](#atribute-pencarian)
+    - [Imutable dan Mutable Table](#imutable-dan-mutable-table)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -181,3 +192,52 @@ Atribute yang berasal dari gabungan dari beberapa atribute yang dapat membedakan
 ### Primary Key
 
 Key utama yang merepresentasikan dari baris secara unik.
+
+## Ketergantungan Fungsionliatas
+Ketergantungan Fungsionliatas adalah dimana atribute tertentu seperti atribute A bergantung pada atribute B. Biasanya atribute A adalah primary-key.
+
+## Proses Normalisasi
+
+### Normalisasi Ke 1 
+
+- tiap kolom tidak bisa menyimpan data lebih dari satu
+- tidak ada kolom duplikat atau ganda
+- tidak ada baris yang duplikat/ganda
+- tidak ada atribute turunan
+
+### Normalisasi Ke 2 
+
+- Harus dalam bentuk normalisasi ke 1 
+- buat table terpisah untuk nilia yang berulang kali pada beberapa baris
+- tambahkan primary key pada tiap table
+- hubungkan dengan foreign key
+
+### Normalisasi Ke 3
+
+- Pindah kolom yang tidak bergantung pada key ke table lain
+
+### Denormalisasi
+
+Terkadang dalam normalisasi data kita harus melanggar aturan, dan itu disebut dengan denormalisasi data. Tujuan dari denormalisasi data yaitu untuk meningkatkan performa atau kecepatan mendapatkan data. 
+
+### Derived Atribute
+
+Saat kita melakukan normalisasi data kita menghapus atribute turunan, tetapi jika atribute turunan dapat meningkatkan performa dan kecepatan maka bisa ditambahkan dalam table.
+
+### Atribute tambahan
+
+Untuk mempurmudah merujuk dari proses pencarian.
+
+### Summary Table
+
+Summary Table adalah table rekaptulasi dari hasil proses table asli/master/detail
+
+### Atribute Pencarian
+
+Membantu untuk proses pencarian dari berbagai kriteri. Seperti halnya nama product pencarian dengan tanpa memperhatikan nama huruf besar kecil.
+
+### Imutable dan Mutable Table
+
+Table Imutable adalah table yang tidak bisa dirubah. Sedangkan Mutable Table adalah table yang dapat berubah-ubah. Contoh table immutable adalah table order, karena table order data yang ada tidak bisa dirubah seperti harga order pada tahun sebelumnya bisa jadi berubah untuk harga tahun kedepannya.
+
+
